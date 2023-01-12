@@ -1,7 +1,16 @@
 import { fetchData } from './data'
-import { initProjects } from './project'
-export { SmartProjectNames } from './smartProject'
-export { projects, findProjectByName } from './project'
+import { initListProjects } from './listProject'
+import {
+  initCompletedSmartProject,
+  initTrashSmartProject,
+} from './smartProject'
+
+export { SmartProjectNames, isSmartProject } from './smartProject'
+export {
+  listProjects,
+  findListProjectByName as findProjectByName,
+} from './listProject'
+export { findSmartProjectByName } from './smartProject'
 export {
   TaskState,
   addTask,
@@ -11,8 +20,8 @@ export {
   createTask,
 } from './task'
 export type { Task } from './task'
-export type { Project } from './project'
+export type { ListProject as Project } from './listProject'
 
-initProjects(fetchData.projects)
-// TODO
-// 初始化 smartProjects  现在是直接初始化了
+initListProjects(fetchData.listProjects)
+initCompletedSmartProject(fetchData.completed)
+initTrashSmartProject(fetchData.trash)
