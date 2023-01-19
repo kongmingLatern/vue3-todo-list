@@ -1,1 +1,0 @@
-export { sidebars } from './sidebar'
